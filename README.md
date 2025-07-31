@@ -124,3 +124,16 @@ La arquitectura actual de la aplicación está preparada para ser extendida fác
 *   `DELETE /api/users/{id}`: Para desactivar o eliminar un usuario.
 
 Estos endpoints requerirían protección mediante el token JWT generado en el registro para asegurar que solo usuarios autorizados puedan acceder a ellos.
+
+---
+
+## Arquitectura de Seguridad y Validación de Tokens
+
+La aplicación genera un token JWT en el momento del registro. Este token está diseñado para ser utilizado por el cliente en futuras peticiones a endpoints protegidos.
+
+La arquitectura actual, con la inclusión de Spring Security y un `JwtService` dedicado, está completamente preparada para implementar la validación de tokens. El siguiente paso sería:
+
+1.  Crear un `JwtAuthenticationFilter` que intercepte cada petición.
+2.  Este filtro se encargaría de extraer el token de la cabecera `Authorization`.
+3.  Utilizaría el `JwtService` para validar la firma y la expiración del token.
+4.  Si el token es válido, se establecería el contexto de seguridad de Spring, permitiendo el acceso al endpoint solicitado.
