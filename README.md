@@ -50,11 +50,18 @@ API RESTful para el registro de usuarios. La aplicación está desarrollada con 
     ```
 
 2.  **Ejecutar con Maven:**
-    Desde la raíz del proyecto, ejecuta el siguiente comando:
+    Desde la raíz del proyecto (recuerda tener configurado el path de las variables de entorno java 17 y maven.), ejecuta el siguiente comando:
     ```bash
     mvn spring-boot:run
     ```
-    La aplicación se iniciará en `http://localhost:8082`, puedes configurarlo en el archivo application.properties.
+3.  **Ejecutar con Intellij:** La forma con la que yo corro el proyecto.
+
+    Current File -> eddit configuration -> add new configuration -> application
+    
+    seleccionan la version de java correspondiente (17) y la clase main (RegistroDeUsuariosApiApplication) luego click en Run.
+
+
+   La aplicación se iniciará en `http://localhost:8082`, puedes configurarlo en el archivo application.properties.
 
 ### Cómo Probar la API
 

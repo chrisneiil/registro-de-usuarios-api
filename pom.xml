@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.evaluacion.java</groupId>
 	<artifactId>registroDeUsuariosApi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>registroDeUsuariosApi</name>
 	<description>Api para la gestión y registro de usuarios</description>
 
