@@ -10,6 +10,7 @@ import com.evaluacion.java.registroDeUsuariosApi.model.User; // <-- ¡ESTA ES LA
 import com.evaluacion.java.registroDeUsuariosApi.repository.UserRepository;
 import com.evaluacion.java.registroDeUsuariosApi.security.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,11 +22,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, JwtService jwtService) {
+    public UserServiceImpl(UserRepository userRepository, JwtService jwtService, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -37,7 +40,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setName(request.getName());
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         List<Phone> phones = request.getPhones().stream().map(phoneDto -> {
             Phone phone = new Phone();

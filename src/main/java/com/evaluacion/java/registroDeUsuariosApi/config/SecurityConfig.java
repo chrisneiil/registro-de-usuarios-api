@@ -16,12 +16,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF
+                .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())) // Permitir H2
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/register", "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers(
+                                "/api/register",
+                                "/h2-console/**",
+                                "/swagger-ui.html",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
+
+                        ).permitAll()
                         .anyRequest().authenticated()
-                )
-                .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()));
+                );
         return http.build();
     }
 
