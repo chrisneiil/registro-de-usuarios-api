@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.evaluacion.java</groupId>
-	<artifactId>registro-de-usuarios</artifactId>
+	<artifactId>registroDeUsuariosApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>registro-de-usuarios</name>
+	<name>registroDeUsuariosApi</name>
 	<description>Api para la gestión y registro de usuarios</description>
 	<url/>
 	<licenses>

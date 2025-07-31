@@ -1,4 +1,4 @@
-package com.evaluacion.java.registro.de.usuarios;
+package com.evaluacion.java.registro_de_usuarios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
